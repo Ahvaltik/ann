@@ -23,7 +23,8 @@ else:
 
     labels = open(labels_filename, mode='w')
     for sample in samples:
-        labels.write(net.activate(sample))
+        activ_str = ', '.join(map(str, net.activate(sample))) + '\n'
+        labels.write(activ_str)
     labels.flush()
     labels.close()
 
